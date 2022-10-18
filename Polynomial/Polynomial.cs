@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
+
 namespace Polynomial
 {
 	public class Polynomial
@@ -12,8 +14,24 @@ namespace Polynomial
 
 		public Polynomial()
 		{
+
 			terms = new LinkedList<Term>();
 
+		}
+
+		public void AddTerm()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override string ToString()
+		{
+			return base.ToString();
+		}
+
+		public static void Main()
+		{
+			Polynomial polynomial = new Polynomial();
 		}
 	}
 }
