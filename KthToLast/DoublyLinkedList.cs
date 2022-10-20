@@ -41,9 +41,6 @@ namespace KthToLast
             Tail = null;
         }
 
-        public DoublyLinkedListNode<T> Head { get; set; }
-        public DoublyLinkedListNode<T> Tail { get; set; }
-
         public T? First => IsEmpty ? default(T) : Head.Data;
 
         public T? Last => IsEmpty ? default(T) : Tail.Data;
@@ -262,7 +259,7 @@ namespace KthToLast
 
             while (currentNode != null)
             {
-                // if you already find the node htat needs to be removed, you cannot change the one before 
+                // if you already find the node that needs to be removed, you cannot change the one before 
                 //you cannot go backwards
                 if (currentNode.Next != null && currentNode.Next.Data.Equals(value))
                 {
@@ -292,7 +289,10 @@ namespace KthToLast
         // Incomplete
         public void RemoveAt(int index)
         {
-            
+            if(IsEmpty)
+            {
+                return;
+            }
         }
 
         // Incomplete
@@ -322,6 +322,7 @@ namespace KthToLast
             return result;
         }
 
+        //TODO
         public T KthToLast(int k)
         {
             var currentNode = Tail;

@@ -141,10 +141,27 @@ namespace KthToLast
             return default(T);
         }
 
-        // Incomplete
+        // TODO
         public void InsertAfter(T newValue, T existingValue)
         {
+            var currentNode = Head;
+            while(currentNode != null)
+            {
+                if(currentNode.Data.Equals(existingValue))
+                {
+                    var NewNode = new LinkedListNode<T>(newValue);
+                    NewNode.Next = currentNode.Next;
+                    currentNode.Next = NewNode;
 
+                    if (currentNode == Tail)
+                    {
+                        Tail = currentNode.Next;
+                    }
+                    length++;
+                }
+
+                currentNode=currentNode.Next;
+            }
         }
 
         public void InsertAt(T value, int index)
@@ -276,7 +293,45 @@ namespace KthToLast
         // Incomplete
         public void RemoveAt(int index)
         {
-            
+            if(IsEmpty || index < 0)
+            {
+                return ;
+            }
+
+            if(Head.Data.Equals(index))
+            {
+                if(Head == Tail)
+                {
+                    Tail = null;
+                }
+                else
+                {
+                    Head = Head.Next;
+                }
+                length--;
+                return;
+            }
+
+            var currentNode = Head;
+            while(currentNode != null)
+            {
+                if(currentNode != null && currentNode.Data.Equals(index))
+                {
+                    var nodeToDelete = currentNode;
+                    if (nodeToDelete == Tail)
+                    {
+                        currentNode.Next = null;
+                        Tail = currentNode;
+                    }
+                    else
+                    {
+                        currentNode.Next = nodeToDelete.Next;
+                        nodeToDelete.Next = null;
+                    }
+                    return ;
+                }
+                currentNode = currentNode.Next;
+            }
         }
 
         // Incomplete
@@ -307,7 +362,14 @@ namespace KthToLast
         // TODO 
         public T KthToLast(int k)
         {
-            return default(T);
+            var currentNode = Head;
+
+            for (int i = 0; i > k; i--)
+            {
+                currentNode = currentNode.Next;
+            }
+
+            return currentNode.Data;
         }
     }
 }

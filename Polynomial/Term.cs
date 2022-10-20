@@ -12,10 +12,25 @@ namespace Polynomial
             Coefficient = coeffecient;
 		}
 
+		// TODO
 		public override string ToString()
 		{
-			return $"{Coefficient}x^{Power}";
-		}
+            
+            if (Coefficient == 0)
+            {
+            	return string.Empty;
+            }
+            if(Power == 0)
+            {
+                return Coefficient.ToString();
+            }
+            else
+            {
+            	return $"{Coefficient}x^{Power}";
+
+            }
+            //return $"{Coefficient}x^{Power}";
+        }
 
 	}
 }
