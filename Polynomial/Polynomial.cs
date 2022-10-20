@@ -60,7 +60,7 @@ namespace Polynomial
 			{
 				if(terms.Equals(0))
 				{
-					result = term.ToString();
+
 				}
 				else
 				{
