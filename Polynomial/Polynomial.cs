@@ -134,7 +134,14 @@ namespace Polynomial
         public static Polynomial Multiply(Polynomial p1, Polynomial p2)
         {
             Polynomial product = new Polynomial();
-            //for
+            while (p1 != null)
+            {
+                p2 = p2;
+                while (p2 != null)
+                {
+                    
+                }
+            }
             return product;
         }
 
